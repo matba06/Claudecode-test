@@ -4,30 +4,68 @@
  * Generated from the Figma design system "Habitz design system (with variables)".
  * These CSS custom properties mirror the Figma variables 1:1 so the components
  * stay in sync with the source of truth.
+ *
+ * The typography scale is RESPONSIVE in Figma (it has a "mobile" and a
+ * "desktop" mode). We reproduce that with a mobile-first default plus a
+ * `min-width: 768px` override, so a single token name resolves to the right
+ * value per breakpoint — exactly like switching variable modes in Figma.
  */
 
 :root {
   /* ---------- Color · Text ---------- */
   --text-primary: #000000;
   --text-invert: #ffffff;
+  /* caption colour: #323241 (surface dark) at 70% opacity */
+  --text-muted: rgba(50, 50, 65, 0.7);
+
+  /* ---------- Color · Icon ---------- */
+  --icon-primary: #000000;
 
   /* ---------- Color · Border ---------- */
   --border-primary: #000000;
 
+  /* ---------- Color · Surface ---------- */
+  --surface-primary: #ffffff;
+  --surface-brand-contrast: #f55daf;
+  --surface-brand-heavy-contrast: #eb279d;
+
+  /* ---------- Color · Palette ---------- */
+  --color-pink-300: #fca4d0;
+
   /* ---------- Radius ---------- */
   --border-radius-normal: 8px;
+  --border-radius-full: 100px;
 
   /* ---------- Spacing ---------- */
+  --spacing-1: 4px;
   --spacing-3: 8px;
   --spacing-4: 12px;
+  --spacing-6: 24px;
   --spacing-7: 32px;
+  --spacing-10: 56px;
 
-  /* ---------- Typography ---------- */
+  /* ---------- Typography · families ---------- */
+  --font-family-title: "Space Grotesk", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
   --font-family-body: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
-  --font-size-md: 18px;
+  --font-family-logo: "Syne", "Space Grotesk", sans-serif;
+
+  /* ---------- Typography · weights ---------- */
+  --font-weight-regular: 400;
   --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* ---------- Typography · sizes (mobile-first) ---------- */
+  --font-size-xs: 12px;
+  --font-size-sm: 16px;
+  --font-size-md: 18px;
+  --font-size-2xl: 32px;
+
+  /* ---------- Typography · line heights (mobile-first) ---------- */
+  --font-line-height-xs: 16px;
   --font-line-height-sm: 24px;
+  --font-line-height-lg: 40px;
 
   /* ---------- Elevation ---------- */
   --elevation-4: 0px 4px 0px 0px #000000;
@@ -44,4 +82,14 @@
   --components-button-secondary-pressed: #a8a9b2;
 
   --components-button-all-disabled: #323241;
+}
+
+/* ---------- Typography · desktop mode (Figma "desktop" variable mode) ---------- */
+@media (min-width: 768px) {
+  :root {
+    --font-size-sm: 18px;
+    --font-size-2xl: 40px;
+    --font-line-height-sm: 28px;
+    --font-line-height-lg: 48px;
+  }
 }

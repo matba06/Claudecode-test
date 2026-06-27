@@ -14,11 +14,20 @@ npm run storybook   # open http://localhost:6006
 
 ## Scripts
 
-| Script                  | Description                                  |
-| ----------------------- | -------------------------------------------- |
-| `npm run storybook`     | Run Storybook in dev mode                    |
-| `npm run build-storybook` | Build the static Storybook                  |
-| `npm run typecheck`     | Type-check the project with `tsc`            |
+| Script                    | Description                                   |
+| ------------------------- | --------------------------------------------- |
+| `npm run dev`             | Run the blog page (Vite) in dev mode          |
+| `npm run build`           | Build the blog page to `dist/`                |
+| `npm run storybook`       | Run Storybook in dev mode                     |
+| `npm run build-storybook` | Build the static Storybook                    |
+| `npm run typecheck`       | Type-check the project with `tsc`             |
+
+## Published site (GitHub Pages)
+
+- **Storybook** (components): `https://matba06.github.io/Claudecode-test/`
+- **Blog post page**: `https://matba06.github.io/Claudecode-test/blog/`
+
+Both are rebuilt and published automatically on every push to the feature branch.
 
 ## Design tokens
 
@@ -51,3 +60,27 @@ import { Button } from "./components/Button";
 
 See every variant × state combination in the **Button → All Variants And
 States** story.
+
+### HomeHeader
+
+`src/components/HomeHeader/` — product header (avatar, habitz brand logo,
+notification bell). Also includes the `Avatar` and `NotificationBell` building
+blocks.
+
+## Pages
+
+### BlogPost
+
+`src/pages/BlogPost/`
+
+A responsive blog post page assembled from the design system. A single
+implementation serves both desktop and mobile:
+
+- **Typography** scales via responsive design tokens (Figma variable modes
+  reproduced as a `min-width: 768px` override in `tokens.css`) — e.g. the title
+  is 40px on desktop and 32px on mobile.
+- **Layout**: the header spans a wide 1200px band while the article text stays
+  in a 600px column; on desktop the hero image breaks out wider than the text.
+
+Run it locally with `npm run dev`, or see it in Storybook under
+**Pages → BlogPost** (Desktop / Mobile stories).

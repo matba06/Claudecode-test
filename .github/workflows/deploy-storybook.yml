@@ -1,4 +1,4 @@
-name: Deploy Storybook to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -42,10 +42,21 @@ jobs:
       - name: Build Storybook
         run: npm run build-storybook
 
+      - name: Build blog page (Vite app)
+        run: npm run build
+
+      # Assemble the site: Storybook at the root, the blog page under /blog.
+      - name: Assemble site
+        run: |
+          mkdir -p public_site
+          cp -r storybook-static/* public_site/
+          mkdir -p public_site/blog
+          cp -r dist/* public_site/blog/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: storybook-static
+          path: public_site
 
   deploy:
     needs: build

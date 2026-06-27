@@ -1,0 +1,21 @@
+.avatar {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: var(--border-radius-full);
+  overflow: hidden;
+  /* Branded gradient placeholder when no image is supplied. */
+  background: linear-gradient(
+    135deg,
+    #a78bfa 0%,
+    var(--color-pink-300) 60%,
+    var(--surface-brand-contrast) 100%
+  );
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}

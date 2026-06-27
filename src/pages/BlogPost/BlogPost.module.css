@@ -1,0 +1,148 @@
+/**
+ * BlogPost — responsive layout.
+ *
+ * Mobile-first. The typography sizes come from the responsive design tokens
+ * (see tokens.css), so the breakpoint here mostly handles layout: on desktop
+ * the header spans a wide 1200px band while the text stays in a 600px column,
+ * and the hero image breaks out wider than the text column.
+ */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-10);
+  min-height: 100vh;
+  padding: var(--spacing-6);
+  background: var(--surface-primary);
+}
+
+.header {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-6);
+  width: 100%;
+  max-width: 600px;
+}
+
+/* ---------------------------------------------------------------- back nav */
+.back {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.backIcon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.backText {
+  font-family: var(--font-family-title);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+  line-height: var(--font-line-height-sm);
+  text-transform: lowercase;
+}
+
+/* ---------------------------------------------------------------- header */
+.postHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  width: 100%;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-family-title);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-2xl);
+  line-height: var(--font-line-height-lg);
+  color: var(--text-primary);
+  font-feature-settings: "case" 1;
+}
+
+.date {
+  margin: 0;
+  font-family: var(--font-family-title);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+  line-height: var(--font-line-height-sm);
+  text-transform: lowercase;
+  color: var(--text-primary);
+}
+
+/* ---------------------------------------------------------------- body */
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  width: 100%;
+}
+
+.paragraph {
+  margin: 0;
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-sm);
+  line-height: var(--font-line-height-sm);
+  color: var(--text-primary);
+}
+
+/* ---------------------------------------------------------------- figure */
+.figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-3);
+  width: 100%;
+  margin: 0;
+  padding-top: var(--spacing-4);
+  padding-bottom: var(--spacing-3);
+}
+
+.image {
+  width: 100%;
+  aspect-ratio: 342 / 205;
+  background: var(--color-pink-300);
+  object-fit: cover;
+  display: block;
+}
+
+.caption {
+  width: 100%;
+  margin: 0;
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-xs);
+  line-height: var(--font-line-height-xs);
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* ---------------------------------------------------------------- desktop */
+@media (min-width: 768px) {
+  /* The hero image breaks out wider than the 600px text column, centred. */
+  .figure {
+    width: min(800px, calc(100vw - 2 * var(--spacing-6)));
+    flex-shrink: 0;
+  }
+
+  .image {
+    aspect-ratio: 800 / 450;
+  }
+}

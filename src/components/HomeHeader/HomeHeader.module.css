@@ -1,0 +1,37 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: var(--spacing-1);
+  padding-bottom: var(--spacing-1);
+}
+
+/* Brand logo: the word "habitz" with a pink highlight behind it. */
+.logo {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.logoHighlight {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 66px;
+  height: 26px;
+  background: var(--surface-brand-contrast);
+}
+
+.logoText {
+  position: relative;
+  z-index: 1;
+  padding: 0 3px;
+  font-family: var(--font-family-logo);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 26px;
+  color: var(--text-primary);
+  font-feature-settings: "case" 1;
+}
