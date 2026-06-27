@@ -1,0 +1,136 @@
+/**
+ * Button — Habitz design system
+ *
+ * Every value below resolves to a design token (CSS custom property) defined in
+ * src/styles/tokens.css. States are expressed both through native pseudo-classes
+ * (real interaction) and through `[data-state="…"]` (forced, for showcases).
+ */
+
+.button {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-4) var(--spacing-7);
+
+  border: 2px solid var(--border-primary);
+  border-radius: var(--border-radius-normal);
+  box-shadow: var(--elevation-4);
+
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-md);
+  line-height: var(--font-line-height-sm);
+  font-feature-settings: "case" 1;
+  color: var(--text-primary);
+  text-align: center;
+  white-space: nowrap;
+
+  cursor: pointer;
+  transition: background-color 0.1s ease, box-shadow 0.1s ease,
+    transform 0.1s ease, border-width 0.1s ease;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+/* ============================================================= PRIMARY ===== */
+.primary {
+  background-color: var(--components-button-primary);
+}
+
+.primary:hover:not(:disabled),
+.primary[data-state="hover"] {
+  background-color: var(--components-button-primary-hover);
+}
+
+.primary:focus-visible,
+.primary[data-state="focused"] {
+  background-color: var(--components-button-primary-focused);
+  border-width: 4px;
+  outline: none;
+}
+
+.primary:active:not(:disabled),
+.primary[data-state="pressed"] {
+  background-color: var(--components-button-primary-pressed);
+  box-shadow: none;
+  transform: translateY(4px);
+}
+
+/* =========================================================== SECONDARY ===== */
+.secondary {
+  background-color: var(--components-button-secondary);
+}
+
+.secondary:hover:not(:disabled),
+.secondary[data-state="hover"] {
+  background-color: var(--components-button-secondary-hover);
+}
+
+.secondary:focus-visible,
+.secondary[data-state="focused"] {
+  background-color: var(--components-button-secondary-focused);
+  border-width: 4px;
+  outline: none;
+}
+
+.secondary:active:not(:disabled),
+.secondary[data-state="pressed"] {
+  background-color: var(--components-button-secondary-pressed);
+  box-shadow: none;
+  transform: translateY(4px);
+}
+
+/* ============================================================ TERTIARY ===== */
+/* Tertiary has no surface in its default state — it reveals the secondary
+   surface treatment on interaction. */
+.tertiary {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.tertiary:hover:not(:disabled),
+.tertiary[data-state="hover"] {
+  background-color: var(--components-button-secondary-hover);
+  border-color: var(--border-primary);
+  box-shadow: var(--elevation-4);
+}
+
+.tertiary:focus-visible,
+.tertiary[data-state="focused"] {
+  background-color: var(--components-button-secondary-focused);
+  border-color: var(--border-primary);
+  border-width: 4px;
+  box-shadow: var(--elevation-4);
+  outline: none;
+}
+
+.tertiary:active:not(:disabled),
+.tertiary[data-state="pressed"] {
+  background-color: var(--components-button-secondary-pressed);
+  border-color: var(--border-primary);
+  box-shadow: none;
+  transform: translateY(4px);
+}
+
+/* ============================================================ DISABLED ===== */
+/* Identical across all variants. */
+.button:disabled {
+  background-color: var(--components-button-all-disabled);
+  border-color: var(--border-primary);
+  border-width: 2px;
+  color: var(--text-invert);
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.button:disabled .label {
+  opacity: 0.5;
+}
