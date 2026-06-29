@@ -26,11 +26,21 @@
 
   /* ---------- Color · Surface ---------- */
   --surface-primary: #ffffff;
+  --surface-invert: #000000;
+  --surface-brand: #fff2f8;
+  --surface-brand-secondary: #fdcae4;
   --surface-brand-contrast: #f55daf;
   --surface-brand-heavy-contrast: #eb279d;
 
+  /* ---------- Color · Icon ---------- */
+  --icon-invert: #ffffff;
+
   /* ---------- Color · Palette ---------- */
+  --color-neutral-0: #ffffff;
+  --color-neutral-1000: #000000;
+  --color-pink-100: #fff2f8;
   --color-pink-300: #fca4d0;
+  --color-pink-500: #eb279d;
 
   /* ---------- Radius ---------- */
   --border-radius-normal: 8px;

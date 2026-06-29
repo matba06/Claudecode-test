@@ -1,0 +1,125 @@
+/**
+ * ActionPresentationCard — Habitz design system.
+ *
+ * Every value resolves to a design token (see tokens.css). States are expressed
+ * both through native pseudo-classes (real interaction) and `[data-state="…"]`
+ * (forced, for showcases), mirroring the Figma variants:
+ *
+ *   default  → surface/brand,           border 2, elevation/4
+ *   hover    → surface/brand-secondary,  border 2, elevation/4
+ *   focused  → surface/brand,            border 4, elevation/4
+ *   pressed  → surface/brand-contrast,   border 2, no shadow
+ */
+
+.card {
+  box-sizing: border-box;
+  position: relative;
+  width: 345px;
+  height: 88px;
+  padding: 0;
+  overflow: hidden;
+  border: 2px solid var(--border-primary);
+  border-radius: var(--border-radius-normal);
+  background: var(--surface-brand);
+  box-shadow: var(--elevation-4);
+  cursor: pointer;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.1s ease, box-shadow 0.1s ease,
+    border-width 0.1s ease;
+}
+
+/* ---------------------------------------------------------------- states */
+.card:hover:not(:disabled):not(:active),
+.card[data-state="hover"] {
+  background: var(--surface-brand-secondary);
+}
+
+.card:focus-visible,
+.card[data-state="focused"] {
+  background: var(--surface-brand);
+  border-width: 4px;
+  outline: none;
+}
+
+.card:active:not(:disabled),
+.card[data-state="pressed"] {
+  background: var(--surface-brand-contrast);
+  box-shadow: none;
+}
+
+/* ---------------------------------------------------------------- icon */
+.iconHolder {
+  position: absolute;
+  top: 50%;
+  left: 24px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--border-radius-full);
+  background: var(--surface-invert);
+  overflow: hidden;
+}
+
+.icon {
+  display: flex;
+  width: 24px;
+  height: 24px;
+  color: var(--icon-invert);
+}
+
+.icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Keep the icon visually anchored when the focused border grows to 4px. */
+.card:focus-visible .iconHolder,
+.card[data-state="focused"] .iconHolder {
+  left: 22px;
+}
+
+/* ---------------------------------------------------------------- label */
+.label {
+  position: absolute;
+  top: 50%;
+  left: 78px;
+  transform: translateY(-50%);
+  font-family: var(--font-family-title);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-md);
+  line-height: var(--font-line-height-sm);
+  color: var(--text-primary);
+  font-feature-settings: "case" 1;
+  white-space: nowrap;
+}
+
+.card:focus-visible .label,
+.card[data-state="focused"] .label {
+  left: 76px;
+}
+
+/* ---------------------------------------------------------------- illustration */
+.illustration {
+  position: absolute;
+  top: 50%;
+  right: -2px;
+  transform: translateY(-50%);
+  width: 175px;
+  height: 88px;
+  pointer-events: none;
+}
+
+.card:focus-visible .illustration,
+.card[data-state="focused"] .illustration {
+  right: -4px;
+}
+
+.illustrationSvg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
