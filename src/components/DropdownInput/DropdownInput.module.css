@@ -1,0 +1,88 @@
+/**
+ * DropdownInput — Habitz design system.
+ *
+ * Token-driven (see tokens.css). States mirror the Figma variants:
+ *
+ *   Default  → border 2, border/primary (black)
+ *   hover    → border 2, border/brand (pink)
+ *   focused  → border 4, border/primary (black)
+ *   open     → border 2, border/brand (pink), caret pointing up
+ */
+
+.trigger {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  width: 180px;
+  height: 40px;
+  padding: var(--spacing-3) var(--spacing-5);
+  border: 2px solid var(--border-primary);
+  border-radius: var(--border-radius-normal);
+  background: var(--surface-primary);
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-sm);
+  line-height: var(--font-line-height-sm);
+  transition: border-color 0.1s ease, border-width 0.1s ease;
+}
+
+/* ---------------------------------------------------------------- states */
+.trigger:hover:not(:disabled),
+.trigger[data-state="hover"] {
+  border-color: var(--border-brand);
+}
+
+.trigger:focus-visible,
+.trigger[data-state="focused"] {
+  border-width: 4px;
+  border-color: var(--border-primary);
+  outline: none;
+}
+
+/* Open wins over hover/focus: pink 2px border. */
+.trigger[data-open] {
+  border-width: 2px;
+  border-color: var(--border-brand);
+}
+
+/* ---------------------------------------------------------------- content */
+.placeholder,
+.value {
+  flex: 1 0 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.placeholder {
+  color: var(--text-contrast);
+}
+
+.value {
+  color: var(--text-primary);
+}
+
+.selectedIcon {
+  display: flex;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: var(--icon-primary);
+}
+
+/* ---------------------------------------------------------------- caret */
+.caret {
+  flex-shrink: 0;
+  width: 10px;
+  height: 16px;
+  color: var(--icon-primary);
+  transition: transform 0.1s ease;
+}
+
+.caret[data-open] {
+  transform: rotate(180deg);
+}

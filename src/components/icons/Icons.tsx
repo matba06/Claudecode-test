@@ -51,6 +51,29 @@ export function ClockIcon({
   );
 }
 
+export function CaretDownIcon({
+  width = 10,
+  height = 16,
+  ...props
+}: { width?: number; height?: number } & SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 10 16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      {...props}
+    >
+      <path d="M1 6l4 4 4-4" />
+    </svg>
+  );
+}
+
 export function BellIcon({
   size = 24,
   ...props
